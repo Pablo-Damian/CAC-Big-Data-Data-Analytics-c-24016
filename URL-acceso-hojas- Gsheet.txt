@@ -1,0 +1,21 @@
+﻿URL de acceso a las hojas de un Gsheet como archivo CSV:
+https://docs.google.com/spreadsheets/d/[ID_planilla]/gviz/tq?tqx=out:csv&sheet=[hoja]
+
+
+Colab: Acceso a Gsheets desde Pandas (usando ID)
+
+#Acceso a Gsheets Metodo con URL de conversion a CSV (lectura)
+# El archivo debe tener permisos de lectura para TODOS
+
+import pandas as pd
+ID_planilla = '1DXwnFf-Nz9JsQxG4LoaxFbKC52_1V0GXXKAs1qhjbEc'
+URL = f'https://docs.google.com/spreadsheets/d/{ID_planilla}/gviz/tq?tqx=out:csv&sheet='
+
+df_alumnos = pd.read_csv(URL + 'alumnos')
+display(df_alumnos)
+
+df_comisiones = pd.read_csv(URL + 'comisiones')
+display(df_comisiones)
+
+df_instructores = pd.read_csv(URL + 'instructores')
+display(df_instructores)
